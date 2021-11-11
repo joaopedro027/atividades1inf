@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFES - Atividades</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.google.com/specimen/Mohave" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
+
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    height: 100%;
+    font-family:'Carrois Gothic SC', sans-serif;
+}
+
+.parent {
+    display: flex;
+}
+
+.sidebar {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    background-color: #286b32;
+}
+
+.sidebar-pos {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+
+}
+
+.img-sidebar{
+    text-align: center;
+}
+
+.img-sidebar img{
+    width: 80%;
+    border:6px solid #2e9e3e;;
+    border-radius: 50%;
+}
+
+.menu{
+    margin: 20px 0;
+    text-align: center;
+}
+
+.menu a{
+    color: white;
+    opacity: 0.4;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.menu a.selected{
+    opacity: 1;
+}
+
+.content{
+    position: absolute;
+    left: 15%;
+    width: 85%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 3%;
+}
+
+section.conteudo{
+    position: relative;
+    top: 135%;
+    transform: translateY(-127%);
+}
+
+section.conteudo h1{
+    color: #2e9e3e;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    
+}
+
+section.conteudo h1 > span{
+    color: rgb(35, 117, 27);
+    font-size: 30px;
+}
+
+section.conteudo h3{
+    margin: 15px 0;
+    color: #000000;
+}
+
+
+
+section.conteudo p{
+    color: #2f6b70;
+    margin: 40px 0;
+    font-size: 20px;
+}
+</style>
+<body>
+
+    <div class="parent">
+
+        <div class="sidebar">
+            <div class="sidebar-pos">
+                <div class="img-sidebar">
+                    <img src="data:image/png;base64,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">
+                </div><!--img-->
+
+                <div class="menu">
+                    <a class="selected" href="">Atividades</a>
+                    <a class="selected" href="https://ava.cefor.ifes.edu.br">AVA</a>
+                    <a class="selected" href="https://academico.ifes.edu.br">Acadêmico</a>
+                    <a class="selected" href="https://www.instagram.com/ifesst2021/">Instagram</a>
+                    <a class="selected" href="https://www.youtube.com/channel/UC3AiGVI_xnKnYqMAK5OVXtA">YouTube</a>
+                    <a class="selected" href="https://discord.gg/YSpzdnKMzf">Discord</a>
+
+                </div><!--menu-->
+
+            </div><!--sidebar-pos-->
+
+        </div><!--sidebar-->
+
+        <div class="content">
+
+            <section class="conteudo">
+
+                <h1><span>Avisos</span></h1>
+            </br>
+                <h3>• Prova substituitiva para quem ficou abaixo da média; 20 pontos (FTI);</h3>
+                <h3>• Atividades reabertas (AGW)</h3>
+                    <hr></hr>
+    
+        <h1><span>Atividades semana 17</span></h1>
+    </p>
+                    
+
+    <h2>Quinta (11/11)</h2>
+        </p>
+        <ul>
+            <li><a class="selected" href="https://ava.cefor.ifes.edu.br/mod/assign/view.php?id=1400735">Segunda Avaliação - 15 pontos (Miltin G2)</a> 23:55</li>
+        </p>
+        <li><a class="selected" href="https://ava.cefor.ifes.edu.br/mod/quiz/view.php?id=1401824">Questionário Avaliativa (Química) </a> 23:59</li>
+        </p>
+        </ul>
+
+    <hr></hr>
+
+    <h2>Sábado (13/11)</h2>
+    </p>
+    <ul>
+        <li><a class="selected" href="https://ava.cefor.ifes.edu.br/mod/quiz/view.php?id=1381182"> 3° Avaliação - 6 pontos (Geografia) </a> 23:59</li>
+    </p>
+    </ul>
+
+    <hr></hr>
+
+    <h2>Sem data de entrega</h2>
+    </p>
+    <ul>
+        <li><a class="selected" href="https://ava.cefor.ifes.edu.br/mod/assign/view.php?id=1410544"> função quadrática - fixação (Matemática) </a></li>
+    </p>
+        <li> <a class="selected" href="https://ava.cefor.ifes.edu.br/mod/assign/view.php?id=1410567"> função quadrática - verificação (Matemática) </a></li>
+    </p>
+    </ul>
+
+    <hr></hr>
+    
+            </section>
+
+        </div><!--content-->
+
+        </div><!--atividades-->
+
+    </div><!--parent-->
+
+    
+</body>
+
+</html>
